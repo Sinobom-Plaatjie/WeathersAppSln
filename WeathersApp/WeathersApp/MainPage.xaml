@@ -9,7 +9,7 @@
                 HorizontalOptions="StartAndExpand" />
         <Label Text="Temperature"  FontSize="2" TextColor="gray" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-        <Label  Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{HH:MM:MMMM dd, yyyy}'}" TextColor="AntiqueWhite" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label  Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{HH:MM:MMMM dd, yyyy}'}" TextColor="gray" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
         <Label Text="{Binding main.temp, StringFormat='{0:N0}°'}"
                HorizontalOptions="Center" TextColor="White" VerticalOptions="Center" FontSize="50"/>
 
