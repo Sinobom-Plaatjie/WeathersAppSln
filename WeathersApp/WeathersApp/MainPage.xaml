@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="WeathersApp.MainPage" BackgroundImageSource = "background.jpg" Title="Weather">
+
+    <StackLayout>
+        <Label Text="CAPE TOWN WEATHER" FontSize="35" FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand" />
+        <Label Text="Temperature"  FontSize="2" TextColor="gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+        <Label  Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{HH:MM:MMMM dd, yyyy}'}" TextColor="AntiqueWhite" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label Text="{Binding main.temp, StringFormat='{0:N0}°'}"
+               HorizontalOptions="Center" TextColor="White" VerticalOptions="Center" FontSize="50"/>
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" HeightRequest="120" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid BackgroundColor="DimGray" Opacity="0.4" >
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Humidity" TextColor="Black" FontSize="15"/>
+                        <Label Text="{Binding main.humidity, StringFormat='{0:N0}%'}" TextColor="Black"  FontSize="20"/>
+                        <Image Source="humdity.png" WidthRequest="30" HeightRequest="20"/>
+                    </StackLayout>
+                </Grid>
+                <Grid BackgroundColor="Gray" Opacity="0.6" Grid.Column="1">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Pressure" TextColor="Black"   FontSize="17"/>
+                        <Label Text="{Binding main.pressure, StringFormat='{0:N0}Pa'}" TextColor="Black"  FontSize="20"/>
+                        <Image Source="pressure.png" WidthRequest="30" HeightRequest="20"/>
+
+                    </StackLayout>
+                </Grid>
+                <Grid BackgroundColor="Gray" Opacity="0.8" Grid.Column="2">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Clouds" TextColor="Black"   FontSize="17"/>
+                        <Label Text="{Binding clouds.all,StringFormat='{0:N0}%'}" TextColor="Black"  FontSize="20"/>
+                        <Image Source="clouds.png" WidthRequest="30" HeightRequest="20"/>
+                    </StackLayout>
+                </Grid>
+                <Grid BackgroundColor="Gray" Grid.Column="3">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Wind Speed" TextColor="Black"   FontSize="17"/>
+                        <Label Text="{Binding wind.speed, StringFormat='{0:N0}km/h'}"  FontSize="20" TextColor="Black" />
+                        <Image Source="wind.png" WidthRequest="30" HeightRequest="20"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>
